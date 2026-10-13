@@ -1,0 +1,29 @@
+{
+  "seed": 42,
+  "table_data": {
+    "path": "data/benchmark_120_simulated.xlsx",
+    "sheet": "Data_120",
+    "metrics": ["AI_Model_Accuracy (%)", "Batch_Failure_Rate (%)", "Production_Cost_Reduction (%)", "Regulatory_Compliance_Score", "System_Resilience_Score"],
+    "labels": {"AI_Model_Accuracy (%)": "Accuracy (%)"},
+    "mu0": 90.0,
+    "note": "Replace 'path' with the ORIGINAL measured table (kham.xlsx) to reproduce the paper's Tables 1-3 and Figures 1-3. The default file is SIMULATED."
+  },
+  "cti": {
+    "ASSUMPTION": "The paper does NOT state the CTI formula or weights. Section 3.3 only says four categories (accuracy, regulatory adherence, resilience, cost-effectiveness) are min-max normalised and regulatory/accuracy are weighted more. The weights below are an illustrative assumption.",
+    "metrics": ["AI_Model_Accuracy (%)", "Regulatory_Compliance_Score", "System_Resilience_Score", "Production_Cost_Reduction (%)"],
+    "invert": [],
+    "weights": [0.35, 0.35, 0.15, 0.15],
+    "norm": "minmax"
+  },
+  "sim": {
+    "n_batches": 120, "folds": 5, "n_candidates": 300,
+    "mc_samples": 50, "dropout": 0.1, "mlp_epochs": 500,
+    "kappa": 1.0, "energy_penalty": 0.8,
+    "expert_eta": 0.6, "expert_noise": 1.5, "expert_fraction": 0.2, "expert_top_k": 3,
+    "stability_bootstrap": 20, "stability_variant": "cv",
+    "trust_weights_per_batch": [0.5, 0.5],
+    "component_weights": [0.2, 0.2, 0.2, 0.2, 0.2],
+    "n_weight_samples": 10000, "n_bootstrap_delta": 1000, "hv_mc_points": 400000,
+    "alpha": 0.01
+  }
+}
