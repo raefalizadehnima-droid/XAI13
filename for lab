@@ -1,0 +1,5 @@
+python -m pip install pandas numpy scipy openpyxl
+
+python pharma_data_workflow.py --mode observed --input measured_data.xlsx --output real_data_analysis.xlsx
+
+python pharma_data_workflow.py --mode simulate --target-workbook kham.xlsx --output simulated_test_workbook.xlsx --n 120
